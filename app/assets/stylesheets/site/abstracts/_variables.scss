@@ -1,0 +1,518 @@
+// // Start Default
+//
+//
+
+// Colors
+//
+//
+$gray: #9e9e9e !default;
+$gray-100: #e0e0e0 !default;
+$gray-200: #e5e9f2 !default;
+$gray-300: #dbdfea !default;
+$gray-400: #b7c2d0 !default;
+$gray-500: #8091a7 !default;
+$gray-600: #3c4d62 !default;
+$gray-700: #616161 !default;
+$gray-800: #424242 !default;
+$gray-900: #161616 !default;
+$primary: #f8d57e !default;
+$btn-color: #161616;
+$primary-light: #eef4ff;
+$primary-lightest: #eef4ff;
+$primary-dark: #634a1d;
+$secondary: #009379 !default;
+$secondary-dark: #c49840 !default;
+$secondary-lightest: #cff5f1 !default;
+$tertiary: #2d628c !default;
+$warning: #ffa353 !default;
+$danger: #f44336 !default;
+$info: #a4e8f2 !default;
+$success: #1bb55c !default;
+$white: #fff !default;
+$black: $gray-900 !default;
+$light: $gray-300 !default;
+$muted: #757575 !default;
+$btnAlt: #0442bf !default;
+$placeholderColor: #757575 !default;
+$placeholderBorderColor: #9e9e9e !default;
+$quicklinkColor: #070756 !default;
+$borderColor: #2fa9a9 !default;
+$borderColorSecondary: #bdbdbd !default;
+$noteColor: #c3e1e1 !default;
+$yellow: #ffefd6;
+$colors: (
+  primary: $primary,
+  secondary: $secondary,
+) !default;
+
+$text-colors-lookup: (
+  white: $primary,
+) !default;
+
+// Sizes
+//
+//
+$spacer: 4px;
+$field-height: 44px !default;
+$field-height-xs: 32px !default;
+$field-height-sm: 36px !default;
+$field-height-lg: 48px !default;
+$field-height-xl: 56px !default;
+$radius: 4px !default;
+$card-radius: 4px !default;
+$radius-pill: 100rem !default;
+
+// Transitions
+//
+// //
+$transition-base: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+$transition-base-alt: all 0.2s ease-in-out !default;
+$transition-fade: opacity 0.2s ease-in-out;
+$transition-collapse: height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) !default;
+
+// Utilities
+//
+//
+$color-contrast-dark: $black !important;
+$color-contrast-light: $white !important;
+$variable-prefix: null !default;
+$escaped-characters: (
+  ("<", "%3c"),
+  (">", "%3e"),
+  ("#", "%23"),
+  ("(", "%28"),
+  (")", "%29")
+) !default;
+$enable-important-utilities: false !default;
+$enable-gradients: false !important;
+$enable-rounded: true !important;
+$min-contrast-ratio: 2 !default;
+$enable-transition: true !default;
+$transition: all 0.3s ease;
+$menu-breakpoint: lg !default;
+$font-smoothing: true !default;
+// Z-Indices
+//
+//
+$z-dropdown: 1000 !default;
+$z-tooltip: 1000 !default;
+$z-topbar: 1100 !default;
+$z-menu-overlay: 1200 !default;
+$z-sidebar: 1300 !default;
+$z-modal-overlay: 1400 !default;
+$z-modal: 1500 !default;
+
+// // End Default
+//
+//
+
+// // Start Base
+// //
+// //
+
+// Typograophy
+//
+//
+$line-height-base: 1.8 !default;
+$line-height-sm: 1.2 !default;
+$line-height-lg: 2 !default;
+
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+$font-weight-black: 900 !default;
+
+$font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.5rem,
+  5: 3rem,
+  6: 2.5rem,
+  h1: 2.25rem,
+  h2: 2rem,
+  h3: 1.75rem,
+  h4: 1.5rem,
+  h5: 1.25rem,
+  h6: 1.125rem,
+  caption: 14px,
+  overline: 12px,
+) !default;
+
+$heading-line-height: $line-height-sm;
+$heading-font-weight: $font-weight-bold !default;
+
+// // End Base
+// //
+// //
+
+// // Start Components
+// //
+// //
+
+// Scaffolding
+//
+//
+$body-bg: #fff !default;
+$body-color: #4f555d !default;
+$font-size-base: 16px !default;
+$font-family-base: "Poppins", sans-serif !default;
+$font-family-heading: "Poppins", sans-serif !default;
+$body-antialiased: false !default;
+$text-rendering: false !default;
+$link-color: $secondary !default;
+$link-hover-color: $secondary !default;
+$link-hover-decoration: underline !default;
+
+// Alert
+//
+//
+$enable-alert-solid: true !default;
+$enable-alert-soft: true !default;
+
+$alert-padding: 16px !default;
+$alert-bg: $light !default;
+$alert-color: $body-color !default;
+$alert-radius: $radius !default;
+$alert-margin: 16px !default;
+$alert-font-weight: 500 !default;
+
+$alert-solid: (
+  danger: $danger,
+  success: $success,
+  info: $info,
+) !default;
+$alert-soft: (
+  danger: $danger,
+  success: $success,
+) !default;
+
+// Avatar
+//
+//
+$avatar-radius: 100% !default;
+$avatar-rounded-radius: $radius !default;
+$avatar-sizes: (
+  14: $spacer * 14,
+  25: $spacer * 25,
+  40: $spacer * 40,
+) !default;
+
+// Badge
+//
+//
+$enable-badge-solid: true !default;
+$enable-badge-soft: true !default;
+$badge-display: inline-flex !default;
+$badge-padding: 2px 8px !default;
+$badge-font-size: 16px !default;
+$badge-pill-enabled: true !default;
+$badge-dot-enabled: false !default;
+$badge-radius: $radius !default;
+$badge-bg: $white !default;
+$badge-color: $white !default;
+$badge-solid: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  danger: $danger,
+  info: $info,
+);
+$badge-soft: (
+  success: $success,
+  info: $info,
+  danger: $danger,
+);
+
+// Button
+//
+//
+$enable-btn-solid: true !default;
+$enable-btn-soft: false !default;
+$enable-btn-outline: true !default;
+$enable-btn-link: false !default;
+
+$btn-style-rounded: true !default;
+
+$btn-display: inline-flex !default;
+$btn-height: 48px !default;
+$btn-padding: 2px 20px !default;
+$btn-radius: 50px !default;
+$btn-bg: none !default;
+$btn-color: $body-color !default;
+$btn-border-width: 1px !default;
+$btn-border-style: solid !default;
+$btn-border-color: transparent !default;
+$btn-font-weight: 500 !default;
+$btn-font-size: 16px !default;
+$btn-hover-bg-shade-amount: 5% !default;
+$btn-disabled-shade-amount: 35% !default;
+$btn-transition: $transition-base;
+$btn-icon-gap: 6px !default;
+$btn-icon-hover-bg: #eee !default;
+$btn-icon-hover-color: $primary !default;
+
+$btn-solid: (
+  primary: $primary,
+  secondary: $secondary,
+) !default;
+$btn-soft: () !default;
+$btn-outline: (
+  white: $white,
+  primary: $primary,
+  secondary: $secondary,
+) !default;
+
+// Card
+//
+//
+$enable-card-list: false !default;
+
+$card-style-flat: true !default;
+$card-style-bordered: false !default;
+$card-style-rounded: true !default;
+$card-style-flush: false !default;
+$card-list-enabled: false !default;
+$card-scroll-enabled: false !default;
+
+$card-border-width: 1px !default;
+$card-border-style: solid !default;
+$card-border-color: $gray-200 !default;
+$card-bg: $white !default;
+$card-shadow: 0px 3px 14px 2px rgba(0, 0, 0, 0.12) !default;
+$card-radius: 4px !default;
+$card-content-padding: 8px 16px !default;
+$card-header-padding: 8px !default;
+$card-header-height: 62px !default;
+$card-title-font-size: 24px !default;
+$card-title-color: $body-color !default;
+$card-title-font-weight: 700 !default;
+$card-header-bottom: 1px solid $gray-200 !default;
+$card-footer-padding: 20px !default;
+$card-list-item-first-child-padding: 0 !default;
+$card-list-item-padding: 16px !default;
+$card-btn-gap: 8px !default;
+$card-bg-alt: #e8f5f5 !default;
+$card-border-alt: #b3dfdf !default;
+$z-index-topbar: 1100;
+
+// Container
+//
+//
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+) !default;
+
+// Grid
+//
+//
+$grid-breakpoints: (
+  xxs: 0,
+  xs: 480px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+) !default;
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 32px !default;
+$grid-row-columns: 6 !default;
+$gutters: null !default;
+$container-padding-x: $grid-gutter-width * 0.5 !default;
+
+// Dropdown
+//
+//
+$dropdown-bg: $white;
+$dropdown-min-width: 180px;
+$dropdown-padding-y: 0;
+$dropdown-padding-x: 0;
+$dropdown-spacer: 0.125rem;
+$dropdown-color: $body-color;
+$dropdown-border-color: $gray-200;
+$dropdown-border-radius: $radius;
+$dropdown-border-width: 1px;
+$dropdown-inner-border-radius: calc(
+  #{$dropdown-border-radius} - #{$dropdown-border-width}
+);
+$dropdown-divider-bg: $gray-200;
+$dropdown-divider-margin-y: 12px;
+$dropdown-box-shadow: 0 3px 12px 1px rgba($black, 0.15);
+$dropdown-font-size: $font-size-base;
+$dropdown-item-padding-y: 8px;
+$dropdown-item-padding-x: 14px;
+$dropdown-link-color: var(--dropdown-link-color);
+$dropdown-link-hover-color: $secondary;
+$dropdown-link-hover-bg: var(--dropdown-link-hover-bg);
+$dropdown-link-active-color: var(--dropdown-link-hover-color);
+$dropdown-link-active-bg: var(--dropdown-link-hover-bg);
+$dropdown-link-disabled-color: var(--body-color-muted);
+$dropdown-header-padding: 12px;
+$dropdown-header-color: var(--body-color-muted);
+
+// Forms
+//
+//
+$field-group-margin: 16px !default;
+
+$enable-label-required: true !default;
+$label-display: inline-block !default;
+$label-font-size: 14px !default;
+$label-font-weight: $font-weight-normal;
+$label-margin: 4px !default;
+$label-form-horizontal-align: flex-start !default;
+$label-form-horizontal-text-align: left !default;
+$label-color: $body-color !default;
+
+$field-bg: $white !default;
+$field-color: $body-color !default;
+$field-border-width: 1px !default;
+$field-border-style: solid !default;
+$field-select-bg: $gray-100 !default;
+$field-border-color: $gray-400 !default;
+$field-font-family: inherit !default;
+$field-radius: 4px;
+$field-padding: 4px 12px;
+$field-transition: $transition-base;
+$field-disabled-color: var(--body-color-muted);
+$field-border-width: 1px;
+$field-focus-border-color: $primary;
+$field-bg: #fffbf6;
+$field-disabled-bg: $gray-200;
+$field-readonly-bg: $gray-100;
+$field-padding-x: 24px;
+$field-padding-y: 16px;
+$field-font-size: 16px;
+$field-prepend-padding: 40px;
+$field-invalid-bg: #fff4f4 !default;
+// Icon
+//
+//
+
+// Image
+//
+//
+
+// Modal
+//
+//
+$modal-sm: 300px !default;
+$modal-md: 640px !default;
+$modal-lg: 800px !default;
+$modal-xl: 1140px !default;
+$modal-backdrop-bg: #000;
+$modal-dialog-margin: 8px;
+$modal-backdrop-opacity: 0.8;
+$modal-transition: $transition-base;
+$modal-fade-transform: none !default;
+$modal-show-transform: none !default;
+$modal-inner-padding: 24px;
+$modal-border-width: 1px;
+$modal-border-color: var(--modal-border);
+$modal-radius: 12px;
+$modal-header-padding: 12px 24px 12px;
+$modal-header-height: 56px;
+$modal-footer-height: 56px;
+$modal-content-padding: 40px 0;
+$modal-header-margin: 0;
+$modal-sm-xpadding: 0 16px;
+$modal-sm-ypadding: 16px 0;
+// Table
+//
+//
+$table-border-color: $gray-300;
+
+// Tooltip
+//
+//
+$tooltip-margin: 0;
+$font-weight-normal: 400;
+$tooltip-font-size: 12px;
+$tooltip-opacity: 0.9;
+$tooltip-arrow-width: 12px;
+$tooltip-arrow-height: 6px;
+$tooltip-arrow-color: #000;
+$tooltip-max-width: 200px;
+$tooltip-padding-y: 4px !default;
+$tooltip-padding-x: 8px !default;
+$tooltip-color: #fff !default;
+$tooltip-bg: #000 !default;
+$tooltip-radius: $radius;
+
+// Transition
+//
+//
+
+// // End Components
+// //
+// //
+
+// // Start Layout
+// //
+// //
+$sidebar-width: 104px !default;
+
+// Topbar
+//
+//
+$topbar-position: fixed !default;
+$topbar-color: $body-color !default;
+$topbar-bg: $white !default;
+$topbar-height: 191px !default;
+$topbar-shadow: 0px 3px 10px 0px #266bc114 !default;
+$topbar-width: calc(100% - #{$sidebar-width}) !default;
+$topbar-display: flex !default;
+
+// Sidebar
+//
+//
+$enable-sidebar-minimize: false !default;
+$sidebar-bg: $primary !default;
+$sidebar-position: fixed !default;
+$sidebar-height: 100% !default;
+$sidebar-border-width: 0 !default;
+$sidebar-border-style: solid !default;
+$sidebar-border-color: #e9eef5 !default;
+$sidebar-shadow: rgba(206, 213, 225, 0.12) !default;
+$sidebar-minimized-width: 80px !default;
+$sidebar-transition: $transition-base !default;
+$sidebar-font-size: $font-size-base !default;
+$sidebar-muted: $muted !default;
+$sidebar-z-index: $z-sidebar;
+$sidebar-link-height: 48px !default;
+$sidebar-link-padding: 4px 16px !default;
+$sidebar-minimized-width: 64px !default;
+$sidebar-link-sub-padding-left: 52px !default;
+$sidebar-footer-height: 60px !default;
+$sidebar-title-padding: 16px 16px 0 !default;
+$sidebar-link-icon-font-size: 20px !default;
+$sidebar-link-color: #526484 !default;
+$sidebar-link-hover-color: $primary !default;
+$sidebar-link-active-color: $primary !default;
+$sidebar-link-active-hover-color: $primary !default;
+$sidebar-link-active-bg: none !default;
+$sidebar-link-font-weight: 700 !default;
+// Scaffolding
+//
+//
+$enable-wrapper: false !default;
+$wrapper-width: 1320px !default;
+$wrapper-padding: 16px !default;
+$wrapper-padding-lg: 16px 32px !default;
+
+// Footer
+//
+//
+
+// // End Layout
+// //
+// //
+
+$select-ns: "ts";

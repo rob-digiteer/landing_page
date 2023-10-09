@@ -1,0 +1,14 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #e5f4f2;
+  overflow: hidden;
+
+  &__content {
+    padding: 20px;
+  }
+}

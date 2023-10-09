@@ -1,0 +1,58 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+// IE10+ doesn't honor `<meta name="viewport">` in some cases.
+@at-root {
+  @-ms-viewport {
+    width: device-width;
+  }
+}
+
+$body-antialiased: true;
+$text-rendering: true;
+
+html {
+  scroll-padding-top: 80px;
+}
+
+html,
+body {
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+  line-height: $line-height-base;
+  color: $body-color;
+  overflow-x: hidden;
+  background-color: $body-bg;
+
+  @if $font-smoothing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+main {
+  flex: 1 0 auto;
+
+  // @include media-breakpoint-up(lg) {
+  //   padding-top: 80px;
+  // }
+
+  &.main--homepage {
+    @include media-breakpoint-up(lg) {
+      padding-top: 0;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}

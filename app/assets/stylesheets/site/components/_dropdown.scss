@@ -1,0 +1,285 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+// The dropdown wrapper (`<div>`)
+.dropup,
+.dropend,
+.dropdown,
+.dropstart {
+  position: relative;
+}
+
+.dropdown-toggle {
+  white-space: nowrap;
+}
+
+.dropdown {
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    span {
+      border: 0;
+      background-color: transparent;
+      // font-size: ;
+      @include rfs($btn-font-size, font-size);
+    }
+
+    &--package {
+      min-height: 48px;
+      border: $field-border-width $field-border-style $field-border-color;
+      border-radius: $field-radius;
+      background-color: $field-bg;
+      background-position: center right 8px;
+      background-repeat: no-repeat;
+      background-size: 18px;
+      background-image: url(escape-svg(
+        "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7.41 8.58997L12 13.17L16.59 8.58997L18 9.99997L12 16L6 9.99997L7.41 8.58997Z' fill='currentColor' /></svg>"
+      ));
+
+      .icon {
+        display: none;
+      }
+    }
+  }
+  &--header {
+    width: 170px !important;
+  }
+}
+
+// The dropdown menu
+.dropdown-menu {
+  position: absolute;
+  z-index: $z-dropdown;
+  display: none; // none by default, but block on "open" of the menu
+  // min-width: $dropdown-min-width;
+  min-width: 100%;
+  padding: $dropdown-padding-y $dropdown-padding-x;
+  margin: 0; // Override default margin of ul
+  @include font-size($dropdown-font-size);
+  color: $dropdown-color;
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  list-style: none;
+  background-color: $dropdown-bg;
+  background-clip: padding-box;
+  @include border-radius($dropdown-border-radius);
+  @include box-shadow($dropdown-box-shadow);
+  // transition: $transition-base;
+
+  &[data-bs-popper] {
+    top: 100%;
+    left: 0;
+    margin-top: $dropdown-spacer;
+  }
+
+  &--search {
+    @include box-shadow(0 14px 12px 1px rgba($black, 0.15));
+    margin-top: -4px !important;
+    max-width: 100%;
+  }
+
+  &--default {
+    transition: none;
+    a {
+      display: flex;
+      color: $dropdown-color;
+      min-height: 40px;
+      align-items: center;
+      font-weight: $font-weight-semibold;
+      padding: 4px 16px;
+      white-space: nowrap;
+      text-decoration: none;
+      &:hover {
+        background-color: $gray-100;
+      }
+    }
+  }
+}
+
+// scss-docs-start responsive-breakpoints
+// We deliberately hardcode the `bs-` prefix because we check
+// this custom property in JS to determine Popper's positioning
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .dropdown-menu#{$infix}-start {
+      --bs-position: start;
+
+      &[data-bs-popper] {
+        right: auto;
+        left: 0;
+      }
+    }
+
+    .dropdown-menu#{$infix}-end {
+      --bs-position: end;
+
+      &[data-bs-popper] {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+}
+// scss-docs-end responsive-breakpoints
+
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+// Just add .dropup after the standard .dropdown class and you're set.
+.dropup {
+  .dropdown-menu[data-bs-popper] {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: $dropdown-spacer;
+  }
+}
+
+.dropend {
+  .dropdown-menu[data-bs-popper] {
+    top: 0;
+    right: auto;
+    left: 100%;
+    margin-top: 0;
+    margin-left: $dropdown-spacer;
+  }
+
+  .dropdown-toggle {
+    &::after {
+      vertical-align: 0;
+    }
+  }
+}
+
+.dropstart {
+  .dropdown-menu[data-bs-popper] {
+    top: 0;
+    right: 100%;
+    left: auto;
+    margin-top: 0;
+    margin-right: $dropdown-spacer;
+  }
+
+  .dropdown-toggle {
+    &::before {
+      vertical-align: 0;
+    }
+  }
+}
+
+// Dividers (basically an `<hr>`) within the dropdown
+.dropdown-divider {
+  height: 0;
+  margin: $dropdown-divider-margin-y 0;
+  overflow: hidden;
+  border-top: 1px solid $dropdown-divider-bg;
+}
+
+// Links, buttons, and more within the dropdown menu
+//
+// `<button>`-specific styles are denoted with `// For <button>s`
+.dropdown-item {
+  display: block;
+  width: 100%; // For `<button>`s
+  padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+  clear: both;
+  font-weight: 400;
+  color: $dropdown-link-color;
+  text-align: inherit; // For `<button>`s
+  white-space: nowrap; // prevent links from randomly breaking onto new lines
+  background-color: transparent; // For `<button>`s
+  border: 0; // For `<button>`s
+
+  .icon + span,
+  .svg-icon + span {
+    margin-left: 8px;
+  }
+
+  // Prevent dropdown overflow if there's no padding
+  // See https://github.com/twbs/bootstrap/pull/27703
+  @if $dropdown-padding-y == 0 {
+    &:first-child {
+      @include border-top-radius($dropdown-inner-border-radius);
+    }
+
+    &:last-child {
+      @include border-bottom-radius($dropdown-inner-border-radius);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    // color: $dropdown-link-hover-color;
+    // @include gradient-bg($dropdown-link-hover-bg);
+  }
+
+  &.active,
+  &:active {
+    // color: $dropdown-link-active-color;
+    text-decoration: none;
+    // @include gradient-bg($dropdown-link-active-bg);
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $dropdown-link-disabled-color;
+    pointer-events: none;
+    background-color: transparent;
+    // Remove CSS gradients if they're enabled
+    background-image: if($enable-gradients, none, null);
+  }
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+// Dropdown section headers
+.dropdown-header {
+  display: block;
+  padding: $dropdown-header-padding;
+  margin-bottom: 0; // for use with heading elements
+  font-size: 12px;
+  // color: $dropdown-header-color;
+  white-space: nowrap; // as with > li > a
+}
+
+// Dropdown text
+.dropdown-item-text {
+  display: block;
+  padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+  color: $dropdown-link-color;
+}
+
+.dropdown-topbar {
+  border-top: 2px solid $secondary;
+  min-width: 250px;
+  .icon {
+    font-size: 20px;
+  }
+
+  .dropdown-item {
+    padding: 10px 32px;
+    font-size: 13px;
+  }
+}
+
+.dropdown-header {
+  border-bottom: 1px solid $dropdown-divider-bg;
+  background: #f5f6fa;
+}
+
+.dropdown-item {
+  @include font-size(map-get($font-sizes, h6));
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+  }
+}

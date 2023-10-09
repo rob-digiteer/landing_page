@@ -1,0 +1,67 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: $sidebar-width;
+  background: $sidebar-bg;
+  height: $sidebar-height;
+  font-size: $sidebar-font-size;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: $sidebar-z-index;
+  border-right: $sidebar-border-width $sidebar-border-style
+    $sidebar-border-color;
+  box-shadow: $sidebar-shadow;
+  // @include transition($sidebar-transition);
+  @include translateX(-100%);
+
+  @include media-breakpoint-up($menu-breakpoint) {
+    @include translateX(0);
+
+    .sidebar-minimized & {
+      width: $sidebar-minimized-width;
+      overflow: hidden;
+
+      &:hover {
+        width: $sidebar-width;
+      }
+    }
+  }
+
+  &__content {
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  &__btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    min-height: $topbar-height;
+    background-color: $primary;
+    color: $white;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    padding: 4px;
+    border-bottom: 1px solid darken($primary, 5%);
+    font-size: 10px;
+    gap: 8px;
+
+    .icon,
+    .icon-static {
+      @include font-size(map-get($font-sizes, h4));
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-color: darken($primary, 5%);
+    }
+  }
+}

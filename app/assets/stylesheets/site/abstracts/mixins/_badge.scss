@@ -1,0 +1,14 @@
+@mixin badge-solid($bg, $color) {
+  --badge-bg: #{$bg};
+
+  @if $color {
+    --badge-color: #{$color};
+  } @else {
+    --badge-color: #{$white};
+  }
+}
+
+@mixin badge-soft($bg) {
+  --badge-bg: #{rgba($bg, 0.2)};
+  --badge-color: #{$bg};
+}

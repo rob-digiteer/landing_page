@@ -1,0 +1,41 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.header {
+  background-color: $primary;
+}
+
+.menu {
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    display: block;
+  }
+
+  &__link {
+    color: $secondary;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__btn {
+    display: inline-flex;
+    min-height: 60px;
+    color: $secondary;
+    // min-width: 200px;
+    padding-left: 48px;
+    padding-right: 48px;
+    background-color: white;
+    align-items: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 20px;
+    font-weight: $font-weight-semibold;
+    gap: 8px;
+
+    &--secondary {
+      color: white;
+      background-color: $secondary;
+    }
+  }
+}

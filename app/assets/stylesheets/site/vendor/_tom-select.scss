@@ -1,0 +1,290 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+// /**
+//  * tom-select.css (v2.2.2)
+//  * Copyright (c) contributors
+//  *
+//  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+//  * file except in compliance with the License. You may obtain a copy of the License at:
+//  * http://www.apache.org/licenses/LICENSE-2.0
+//  *
+//  * Unless required by applicable law or agreed to in writing, software distributed under
+//  * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+//  * ANY KIND, either express or implied. See the License for the specific language
+//  * governing permissions and limitations under the License.
+//  *
+//  */
+
+// // base styles
+// @import "variables";
+
+// @mixin selectize-vertical-gradient($color-top, $color-bottom) {
+//   background-color: mix($color-top, $color-bottom, 60%);
+//   background-image: linear-gradient(to bottom, $color-top, $color-bottom);
+//   background-repeat: repeat-x;
+// }
+
+// .#{$select-ns}-wrapper.single {
+//   .#{$select-ns}-control {
+//     &,
+//     input {
+//       cursor: pointer;
+//     }
+//   }
+// }
+
+// .#{$select-ns}-control {
+//   padding-right: Max(
+//     var(--ts-pr-min),
+//     calc(var(--ts-pr-clear-button) + var(--ts-pr-caret))
+//   ) !important;
+// }
+
+// @mixin ts-caret() {
+//   .#{$select-ns}-wrapper.single {
+//     .#{$select-ns}-control {
+//       --ts-pr-caret: 2rem;
+
+//       &:after {
+//         content: " ";
+//         display: block;
+//         position: absolute;
+//         top: 50%;
+//         right: $select-arrow-offset;
+//         margin-top: round(-0.5 * $select-arrow-size);
+//         width: 0;
+//         height: 0;
+//         border-style: solid;
+//         border-width: $select-arrow-size $select-arrow-size 0 $select-arrow-size;
+//         border-color: $select-arrow-color transparent transparent transparent;
+//       }
+//     }
+
+//     &.dropdown-active .#{$select-ns}-control::after {
+//       margin-top: $select-arrow-size * -0.8;
+//       border-width: 0 $select-arrow-size $select-arrow-size $select-arrow-size;
+//       border-color: transparent transparent $select-arrow-color transparent;
+//     }
+
+//     &.input-active .#{$select-ns}-control,
+//     &.input-active .#{$select-ns}-control input {
+//       cursor: text;
+//     }
+//   }
+// }
+
+// @import "plugins";
+
+.#{$select-ns}-wrapper {
+  position: relative;
+}
+
+// .#{$select-ns}-dropdown,
+// .#{$select-ns}-control,
+// .#{$select-ns}-control input {
+//   color: $select-color-text;
+//   font-family: $select-font-family;
+//   font-size: $select-font-size;
+//   line-height: $select-line-height;
+//   font-smoothing: $select-font-smoothing;
+// }
+
+// .#{$select-ns}-control,
+// .#{$select-ns}-wrapper.single.input-active .#{$select-ns}-control {
+//   background: $select-color-input;
+//   cursor: text;
+// }
+
+// @import "items";
+// @import "dropdown";
+
+.ts-hidden-accessible {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  //height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.#{$select-ns}-wrapper.single {
+  .#{$select-ns}-control {
+    &,
+    input {
+      cursor: pointer;
+    }
+  }
+}
+
+.#{$select-ns}-wrapper.single {
+  .#{$select-ns}-control {
+    input {
+      background-color: transparent;
+    }
+  }
+}
+
+.#{$select-ns}-wrapper {
+  align-items: center;
+  .#{$select-ns}-control {
+    input {
+      font-family: $font-family-base;
+    }
+  }
+
+  .item {
+    display: inline-flex;
+  }
+
+  // Focus
+  &.focus {
+    .#{$select-ns}-control {
+      border-color: $field-focus-border-color;
+    }
+  }
+
+  .clear-button {
+    display: none;
+    overflow: hidden;
+    text-indent: -9999px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 28px;
+    background-image: url(escape-svg(
+      "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path d='M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-6.489 5.8a1 1 0 0 0 -1.218 1.567l1.292 1.293l-1.292 1.293l-.083 .094a1 1 0 0 0 1.497 1.32l1.293 -1.292l1.293 1.292l.094 .083a1 1 0 0 0 1.32 -1.497l-1.292 -1.293l1.292 -1.293l.083 -.094a1 1 0 0 0 -1.497 -1.32l-1.293 1.292l-1.293 -1.292l-.094 -.083z' stroke-width='0' fill='#aaa'></path></svg>"
+    ));
+  }
+
+  &.has-items {
+    .ts-control {
+      padding-right: 44px;
+    }
+    .ts-control > input {
+      visibility: hidden;
+    }
+
+    .clear-button {
+      display: block;
+    }
+  }
+
+  &.disabled {
+    .#{$select-ns}-control {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+}
+
+.#{$select-ns}-control {
+  --field-height: #{$field-height};
+  display: flex;
+  align-items: center;
+  height: var(--field-height);
+  background-color: $field-bg;
+  width: 100%;
+  border: $field-border-width $field-border-style $field-border-color;
+  border-radius: $field-radius;
+  font-family: $field-font-family;
+  padding: $field-padding-y $field-padding-x;
+  color: $field-color;
+  font-size: $field-font-size;
+  @include transition($field-transition);
+  padding-right: 32px;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center right 8px;
+  background-image: url(escape-svg(
+    "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7.41 8.58997L12 13.17L16.59 8.58997L18 9.99997L12 16L6 9.99997L7.41 8.58997Z' fill='currentColor' /></svg>"
+  ));
+  gap: 4px;
+
+  & > input {
+    flex: 1 1 auto;
+    border: 0;
+    font-size: $font-size-base;
+  }
+  .multi & {
+    .item {
+      background-color: $primary;
+      color: $white;
+      border-radius: $radius;
+      padding: 6px 8px;
+      @include border-radius($field-radius);
+
+      a {
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .field-group--invalid & {
+    border-color: $danger;
+    background-color: $field-invalid-bg;
+  }
+}
+
+.#{$select-ns}-dropdown {
+  position: absolute;
+  top: 100%;
+  margin-top: 4px;
+  background-color: #fff;
+  box-shadow: $dropdown-box-shadow;
+  border-radius: $radius;
+  width: 100%;
+  z-index: 2;
+  padding: 8px 0;
+
+  .option {
+    display: flex;
+    width: 100%;
+    min-height: 32px;
+    cursor: pointer;
+    align-items: center;
+    padding: $field-padding;
+
+    &:hover {
+      background-color: $gray-200;
+    }
+  }
+}
+
+.dropdown-input-wrap {
+  padding: 4px 8px 8px;
+  input {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: #fafafa;
+    width: 100%;
+    border: $field-border-width $field-border-style $field-border-color;
+    border-radius: $field-radius;
+    font-family: $field-font-family;
+    padding: $field-padding-y $field-padding-x;
+    color: $field-color;
+    font-size: 14px;
+    @include transition($field-transition);
+  }
+}
+
+.no-results {
+  padding: 4px 12px 0;
+  font-size: 14px;
+}
+
+.#{$select-ns}-dropdown-content {
+  max-height: 154px;
+  overflow-y: auto;
+}
+
+.ts-control {
+  min-height: 48px;
+}

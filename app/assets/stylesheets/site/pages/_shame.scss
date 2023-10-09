@@ -1,0 +1,9 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.section {
+  &--light {
+    background-color: #f8f9ff;
+  }
+}

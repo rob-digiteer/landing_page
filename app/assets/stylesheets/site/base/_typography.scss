@@ -1,0 +1,79 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: $heading-line-height;
+  font-weight: $heading-font-weight;
+}
+
+.display-1 {
+  @include font-size(map-get($font-sizes, 1));
+}
+
+.display-2 {
+  @include font-size(map-get($font-sizes, 2));
+}
+
+.display-3 {
+  @include font-size(map-get($font-sizes, 3));
+}
+
+.display-4 {
+  @include font-size(map-get($font-sizes, 4));
+}
+
+.display-5 {
+  @include font-size(map-get($font-sizes, 5));
+}
+
+.display-6 {
+  @include font-size(map-get($font-sizes, 6));
+}
+
+h1,
+.h1 {
+  @include font-size(map-get($font-sizes, h1));
+}
+
+h2,
+.h2 {
+  @include font-size(map-get($font-sizes, h2));
+}
+
+h3,
+.h3 {
+  @include font-size(map-get($font-sizes, h3));
+}
+
+h4,
+.h4 {
+  @include font-size(map-get($font-sizes, h4));
+}
+
+h5,
+.h5 {
+  @include font-size(map-get($font-sizes, h5));
+}
+
+h6,
+.h6 {
+  @include font-size(map-get($font-sizes, h6));
+}
+
+.h {
+  @include font-size($font-size-base);
+}
+
+.caption {
+  @include font-size(map-get($font-sizes, caption));
+}
+
+.overline {
+  @include font-size(map-get($font-sizes, overline));
+}

@@ -1,0 +1,10 @@
+@mixin alert-solid($bg, $color: #fff) {
+  background: $bg;
+  color: $color;
+}
+
+@mixin alert-soft($background) {
+  background: rgba($background, 0.2);
+  color: $background;
+  border-color: $background;
+}

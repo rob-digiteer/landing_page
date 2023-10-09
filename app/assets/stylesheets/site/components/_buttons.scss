@@ -1,0 +1,240 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+// Reset focus browser style for anchor and button
+a:focus,
+button:focus {
+  outline: none;
+}
+
+// Override browser style for button
+button {
+  border: 0;
+  padding: 0;
+  background: none;
+}
+
+.btn {
+  // color: $btn-color;
+  --btn-bg: #{$btn-bg};
+  --btn-border-color: #{$btn-bg};
+  --btn-color: #{$btn-color};
+  --btn-height: #{$field-height};
+
+  background: var(--btn-bg);
+  border: $btn-border-width $btn-border-style var(--btn-border-color);
+  color: var(--btn-color);
+  cursor: pointer;
+  display: $btn-display;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  min-height: var(--btn-height);
+  padding: $btn-padding;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-family: inherit;
+  @include transition($btn-transition);
+
+  & > * {
+    pointer-events: none;
+  }
+
+  &:disabled {
+    background-color: $gray-200;
+    border-color: $gray-400;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  @if $btn-style-rounded {
+    border-radius: $btn-radius;
+
+    &--edged {
+      border-radius: 0;
+    }
+  } @else {
+    &--rounded {
+      border-radius: $btn-radius;
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  @if $btn-display == "flex" or $btn-display == "inline-flex" {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .svg-icon + span,
+  span + .svg-icon,
+  svg + span,
+  span + svg {
+    margin-left: $btn-icon-gap;
+  }
+
+  @if $enable-btn-solid {
+    @each $color, $value in $btn-solid {
+      &--#{$color} {
+        @include btn-solid($value, map-get($text-colors-lookup, $color));
+      }
+    }
+  }
+
+  @if $enable-btn-soft {
+    @each $color, $value in $btn-soft {
+      &--soft-#{$color} {
+        @include btn-soft($value, map-get($text-colors-lookup, $color));
+      }
+    }
+  }
+
+  @if $enable-btn-outline {
+    @each $color, $value in $btn-outline {
+      &--outline-#{$color} {
+        @include btn-outline($value, map-get($text-colors-lookup, $color));
+      }
+    }
+  }
+
+  @if $enable-btn-link {
+  }
+
+  &--text-light {
+    --btn-color: #{$white};
+
+    &:hover {
+      --btn-bg: #{$white};
+      --btn-color: #{$body-color};
+    }
+  }
+
+  //
+  // Variants
+  //
+  // @each $color, $value in $button-colors {
+  //   &--#{$color} {
+  //     @include button-variant($value, $value);
+  //   }
+  // }
+  //
+  // Outline
+  //
+  // @each $color, $value in $button-colors {
+  //   &--outline-#{$color} {
+  //     @include button-outline-variant($value);
+  //   }
+  // }
+
+  //
+  // Soft
+  //
+  // @each $color, $value in $button-colors {
+  //   &--soft-#{$color} {
+  //     @include button-soft-variant($value);
+  //   }
+  // }
+
+  //
+  // Hover
+  //
+  // @each $color, $value in $button-colors {
+  //   &--hover-#{$color} {
+  //     @include button-hover-variant($value);
+  //   }
+  // }
+
+  //
+  // Sizing
+  //
+  &--xs {
+    --btn-height: #{$field-height-xs};
+  }
+
+  &--sm {
+    --btn-height: #{$field-height-sm};
+  }
+
+  &--md {
+    --btn-height: #{$field-height};
+  }
+
+  &--lg {
+    --btn-height: #{$field-height-lg};
+  }
+
+  &--xl {
+    --btn-height: #{$field-height-xl};
+  }
+
+  //
+  // Widths
+  //
+  &--block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  //
+  // Icon
+  //
+  &--pill {
+    border-radius: $radius-pill;
+  }
+
+  //
+  // Icon
+  //
+  &--icon {
+    padding: 2px;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-height: 0;
+    border-radius: $radius;
+
+    .icon,
+    .svg-icon {
+      font-size: 20px;
+    }
+  }
+
+  &--icon-hover {
+    position: relative;
+    display: inline-flex;
+    &:before {
+      content: "";
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      border-radius: 100%;
+      background: $btn-icon-hover-bg;
+      transition: $btn-transition;
+      opacity: 0;
+      left: 0;
+      top: 0;
+      transform: scale(0);
+    }
+
+    * {
+      position: relative;
+      z-index: 2;
+    }
+
+    &:hover {
+      &:before {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}

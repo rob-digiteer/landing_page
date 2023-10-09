@@ -1,0 +1,150 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+// stylelint-disable indentation
+
+// Utilities
+
+$utilities: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-merge(
+  (
+    "align": (
+      property: vertical-align,
+      class: align,
+      values: baseline top middle,
+    ),
+    "justify-content": (
+      property: justify-content,
+      values: (
+        end: flex-end,
+        between: space-between,
+        center: center,
+        around: space-around,
+      ),
+    ),
+    "align-items": (
+      property: align-items,
+      values: (
+        center: center,
+      ),
+    ),
+    "order": (
+      property: order,
+      class: order,
+      responsive: true,
+      values: (
+        first: -1,
+        last: 9999,
+      ),
+    ),
+    "padding-y": (
+      rfs: true,
+      property: padding-top padding-bottom,
+      responsive: true,
+      class: py,
+      values: (
+        5: $spacer * 5,
+        15: $spacer * 15,
+        30: $spacer * 30,
+      ),
+    ),
+    "text-align": (
+      property: text-align,
+      class: text,
+      responsive: true,
+      values: (
+        left: left,
+        center: center,
+        right: right,
+      ),
+    ),
+
+    "margin-bottom": (
+      rfs: true,
+      property: margin-bottom,
+      responsive: true,
+      class: mb,
+      values: (
+        1: $spacer,
+        4: $spacer * 4,
+        5: $spacer * 5,
+        8: $spacer * 8,
+        10: $spacer * 10,
+        12: $spacer * 12,
+        15: $spacer * 15,
+      ),
+    ),
+
+    "margin-right": (
+      rfs: true,
+      property: margin-right,
+      responsive: true,
+      class: mr,
+      values: (
+        4: $spacer * 4,
+      ),
+    ),
+    "display": (
+      property: display,
+      class: d,
+      responsive: true,
+      values: none block,
+    ),
+    "gutter": (
+      property: --gutter-x --gutter-y,
+      class: g,
+      values: (
+        5: $spacer * 5,
+      ),
+    ),
+    "gutter-x": (
+      property: --gutter-x,
+      class: gx,
+      responsive: true,
+      values: (
+        0: 0,
+        4: $spacer * 4,
+      ),
+    ),
+    "gutter-y": (
+      property: --gutter-y,
+      class: gy,
+      values: (
+        4: $spacer * 4,
+        5: $spacer * 5,
+        6: $spacer * 6,
+      ),
+    ),
+    "width": (
+      property: width,
+      class: w,
+      values: (
+        100: 100%,
+      ),
+    ),
+    "height": (
+      property: height,
+      class: h,
+      values: (
+        auto: auto,
+      ),
+    ),
+    "background-color": (
+      property: background-color,
+      class: bg,
+      values: (
+        primary: $primary,
+      ),
+    ),
+    "color": (
+      property: color,
+      class: text,
+      values: (
+        secondary: $secondary,
+      ),
+    ),
+  ),
+  $utilities
+);

@@ -1,0 +1,24 @@
+@import "./site/vendor/rfs";
+@import "./site/abstracts/variables";
+@import "./site/abstracts/mixins";
+
+.footer {
+  // padding-top: 60px;
+  padding-top: $spacer * 15;
+  background-color: $primary;
+
+  &__bottom {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    color: white;
+    background-color: #2d2d2d;
+  }
+
+  &__social-icon {
+    color: #4e4d4d;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

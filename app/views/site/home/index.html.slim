@@ -1,0 +1,160 @@
+section.section.section--light.py-15.py-lg-30
+  .container
+    .row.justify-content-between.align-items-center.gy-6
+      .col-lg-6
+        h2.display-6.mb-5 Our features
+        p.h5.mb-12 Few good reasons why you should use Anima Landing Page Ui Kit to make your own pages.
+
+        .row.g-5
+          .col-md-6
+            .card
+              .card__content
+                .avatar.mr-4
+                  =render "site/icons/ufo"
+                span Fast building
+          .col-md-6
+            .card
+              .card__content
+                .avatar.mr-4
+                  =render "site/icons/magic-wand"
+                span Easy to edit
+          .col-md-6
+            .card
+              .card__content
+                .avatar.mr-4
+                  =render "site/icons/responsiveness"
+                span Responsiveness
+          .col-md-6
+            .card
+              .card__content
+                .avatar.mr-4
+                  =render "site/icons/box"
+                span No code needed
+      .col-lg-5.order-lg-first
+        =image_tag("visuals.svg", alt: "phone", size: "540x450", class: "img-fluid")
+
+section.section.section--light.py-15.py-lg-30
+  .container
+    .text-center
+      h2.display-5 Discover our latest work
+
+      .row.justify-content-center.mb-15
+        .col-lg-5
+          p Explore our portfolio and see the latest and greatest projects that we've brought to life.
+    .row.gy-6
+      .col-sm-6.col-lg-4
+        .card
+          =image_tag("thumbnail.svg", class: "w-100 h-auto", alt: "thumb", size: "370x278")
+          .card__content
+            h3 Project Title
+            .h5 Short Description
+            p Category
+      .col-sm-6.col-lg-4
+        .card
+          =image_tag("thumbnail.svg", class: "w-100 h-auto", alt: "thumb", size: "370x278")
+          .card__content
+            h3 Project Title
+            .h5 Short Description
+            p Category
+      .col-sm-6.col-lg-4
+        .card
+          =image_tag("thumbnail.svg", class: "w-100 h-auto", alt: "thumb", size: "370x278")
+
+          .card__content
+            h3 Project Title
+            .h5 Short Description
+            p Category
+      / p
+        span Explore our portfolio and see the latest and
+        span.d-none.d-lg-block
+        span
+          | &nbsp;greatest projects that we've brought to life.
+section.section.bg-primary.py-15.py-lg-30
+  .container
+    / .text-center
+      h2.h1 Real Stories from Satisfied Customers
+      p See how our landing page ui kit is making an impact.
+
+    h2.h1.text-center.mb-5 Real Stories from Satisfied Customers
+    p.text-center.mb-15  See how our landing page ui kit is making an impact.
+
+    .row.gy-6
+      .col-lg-6
+        .card
+          .card__content
+            .row.align-items-center
+              .col-lg-4.text-center
+                =image_tag("lauren.svg", alt: "lauren michelle", size: "120", class: "img-fluid mb-4")
+                h5.mb-1 Lauren M.
+                .caption UI Designer @Boo
+              .col-lg-8
+                -(1..5).each do
+                  =render "site/icons/star"
+                p "Anima’s Landing Page UI Kit has become a staple in my design toolkit. This kit has everything I need to get the job done quickly and efficiently."
+      .col-lg-6
+        .card
+          .card__content
+            .row.align-items-center
+              .col-lg-4.text-center
+                =image_tag("david.svg", alt: "david bob", size: "120", class: "img-fluid mb-4")
+                h5.mb-1 David B.
+                .caption UI Designer @Boo
+              .col-lg-8
+                -(1..5).each do
+                  =render "site/icons/star"
+                p “The Landing Page UI Kit has been a game changer. The pre-designed components and templates have helped us deliver projects faster!”
+
+section.section.py-15.py-lg-30.section--light
+  .container
+
+    h2.h1.text-center.mb-5 Meet our team
+    p.text-center.mb-15  Get to know the faces behind the scenes and learn about the values that drive us.
+  .container-md
+    .row.gy-6
+      -(1..3).each do
+        .col-sm-6.col-lg-4
+          .card
+            .card__content
+              .text-center.mb-8
+                =image_tag("david.svg", alt: "david bob", size: "120", class: "img-fluid mb-4")
+                h5.mb-1 David B.
+                .caption UI Designer @Boo
+              p.text-center.mb-8 With a passion for color and a love for clean lines, Sarah brings all our wildest design dreams to life.
+
+              .row.justify-content-around.gx-0
+                .col-auto
+                  a.text-secondary href="#" Twitter 
+                .col-auto
+                  a.text-secondary href="#" Dribbble 
+                .col-auto
+                  a.text-secondary href="#" Linkedin 
+
+section.section.py-15.py-lg-30
+  .container
+
+    h2.h1.text-center.mb-5 More than 50 Integrations
+    p.text-center.mb-15 We integrate with more than 50 apps you use daily
+    
+    .row.justify-content-between.gy-6.mb-10
+      -(1..6).each do
+        .col-auto
+          =image_tag("icon.svg", alt: "icon", size: "64", class: "img-fluid")
+      .w-100.d-none.d-lg-block
+      .col-auto.d-none.d-lg-block
+      -(1..5).each do
+        .col-auto
+          =image_tag("icon.svg", alt: "icon", size: "64", class: "img-fluid")
+      .col-auto.d-none.d-lg-block
+      .w-100.d-none.d-lg-block
+      .col-auto.d-none.d-lg-block
+      .col-auto.d-none.d-lg-block
+      -(1..4).each do
+        .col-auto
+          =image_tag("icon.svg", alt: "icon", size: "64", class: "img-fluid")
+      
+      .col-auto.d-none.d-lg-block
+      .col-auto.d-none.d-lg-block
+
+    .text-center
+      a.btn.btn--secondary.btn--xl href="#"
+        | View All Integrations

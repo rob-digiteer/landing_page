@@ -1,0 +1,56 @@
+@mixin btn-solid($bg, $color) {
+  --btn-bg: #{$bg};
+
+  // Hover
+  &:hover {
+    --btn-bg: #{darken($bg, $btn-hover-bg-shade-amount)};
+    @if $color {
+      --btn-color: #{$color};
+    } @else {
+      --btn-color: #{$white};
+    }
+  }
+
+  &:disabled {
+    --btn-bg: #{lighten($bg, $btn-disabled-shade-amount)};
+  }
+
+  @if $color {
+    --btn-color: #{$color};
+  } @else {
+    --btn-color: #{$white};
+  }
+}
+
+@mixin btn-soft($bg, $color) {
+  --btn-bg: #{rgba($bg, 0.1)};
+  --btn-color: #{$bg};
+
+  // Hover
+  &:hover {
+    --btn-bg: #{$bg};
+
+    @if $color {
+      --btn-color: #{$color};
+    } @else {
+      --btn-color: #{$white};
+    }
+  }
+}
+
+@mixin btn-outline($bg, $color) {
+  --btn-bg: #{$white};
+  --btn-color: #{$bg};
+  --btn-border-color: #{$bg};
+
+  // Hover
+  &:hover {
+    --btn-bg: #{$bg};
+
+    @if $color {
+      --btn-color: #{$color};
+    } @else {
+      --btn-color: #{$white};
+    }
+  }
+}

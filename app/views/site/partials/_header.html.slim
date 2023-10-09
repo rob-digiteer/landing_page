@@ -1,0 +1,19 @@
+header.header
+  .container.py-5
+    .row.align-items-center.justify-content-between
+      .col-auto
+        .header__logo
+          =image_tag("logo.svg", alt: "logo", size: "179x32")
+
+      .col-auto.d-lg-none
+        button Menu
+      .col.menu
+        .row.justify-content-end.align-items-center
+          .col-auto
+            a.menu__link href="#" Contact 
+          .col-auto
+            a.menu__btn href="#" How it works
+          .col-auto
+            a.menu__btn.menu__btn--secondary href="#"
+              =render "site/icons/rocket"
+              span Get Started 
